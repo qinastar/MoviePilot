@@ -311,9 +311,9 @@ class SubscribeChain(ChainBase):
                         if (now - subscribe_time).total_seconds() < 60:
                             logger.debug(f"订阅标题：{subscribe.name} 新增小于1分钟，暂不搜索...")
                             continue
-                    # 随机休眠1-5分钟
+                    # 随机休眠3-5秒
                     if not sid and state in ['R', 'P']:
-                        sleep_time = random.randint(60, 300)
+                        sleep_time = random.randint(3, 5)
                         logger.info(f'订阅搜索随机休眠 {sleep_time} 秒 ...')
                         time.sleep(sleep_time)
                     try:
